@@ -37,27 +37,27 @@ function input () {
 
 	if (float > 0 && float != NaN) {
 
+		switch (attr) {
+			case 'bill':
+				console.log('¡Tío bill eres tú!')
+				$count.bill = float
+				$countOfData++ 
+				break;
+			case 'people':
+				console.log('people')
+				$count.personNum = float
+				$countOfData++
+				break;
+			case 'custom':
+				console.log('custom')
+				$count.percent = float
+				$countOfData++
+				break;
+		}
 		if (deleteNode != null) {
 			setTimeout((() => {
 				deleteNode.parentNode.removeChild(deleteNode)
 			}),500)
-		}
-
- 		if( attr == 'bill'){
-			console.log('¡Tío bill eres tú!')
-			$count.bill = float
-			$countOfData++ 
-		}
-		if (attr == 'people') {
-			console.log('people')
-			$count.personNum = float
-			$countOfData++ 
-			
-		}
-		if (attr == 'custom') {
-			console.log('custom')
-			$count.percent = float
-			$countOfData++ 
 		}
 		if ($countOfData == 3){
 			paint()
