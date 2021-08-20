@@ -2,8 +2,7 @@
 // ((bill * percentage ) + bill) / numberPeople == total 
 const $button = document.querySelectorAll('button')
 const $input = document.querySelectorAll('input[type=text]')
-let $countOfData = 0 
-const $errorMessage = `Can't be zero` 
+let $countOfData = 0  
 let $count = {
 	bill : 0,
 	personNum : 0,
@@ -32,20 +31,17 @@ $input.forEach( function(e) {
 function input () {
 	const attr = this.getAttribute('name')
 	const float = parseFloat(this.value)
-	const span = document.createElement('span')
-	span.id = 'span'
-		const deleteNode = document.querySelector('#span')
+	const p = document.createElement('p')
+	p.id = 'p'
+	const deleteNode = document.querySelector('#p')
 
 	if (float > 0 && float != NaN) {
 
-		console.log(this)
 		if (deleteNode != null) {
-			console.log('entrando')
 			setTimeout((() => {
 				deleteNode.parentNode.removeChild(deleteNode)
 			}),500)
 		}
-
 
  		if( attr == 'bill'){
 			console.log('¡Tío bill eres tú!')
@@ -67,11 +63,16 @@ function input () {
 			paint()
 		}
 	}else {
-		// const deleteNode = document.querySelector('#span')
 		if (deleteNode == null) {
-			const text = document.createTextNode($errorMessage)
-			span.appendChild(text)
-			this.parentNode.appendChild(span)
+			this.style.display = 'block'
+			const text = document.createTextNode(`Can't be zero`)
+			this.id = 'inputText'
+			const child = document.querySelector('#inputText')
+			p.appendChild(text)
+			let m = this.parentNode.id
+			let l = document.querySelector('#'+m).insertBefore(p, child)
+			console.log(l)
+			this.removeAttribute('id')
 		}
 	}
 }

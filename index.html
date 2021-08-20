@@ -12,6 +12,16 @@
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+    input.p{
+      display: block
+    }
+    #p{
+      color: red;
+      display: inline;
+    }
+    #let{
+      display: inline;
+    }
   </style>
 </head>
 <body>
@@ -19,11 +29,11 @@
     <form action="">
     
   <section class="wrapper">
-    <article class="container">
-      <p>Bill</p>
-      <input type="text" name="bill" placeholder="0.00">
+    <article id='bill' class="container">
+      <p id="let">Bill</p>
+      <input class="q" type="text" name="bill" placeholder="0.00">
     </article>
-    <article class="container">
+    <article id='perctg' class="container">
       <p>Select Tip %</p>
       <button class="percentage" name='5'>5%</button>
       <button class="percentage" name='10'>10%</button>
@@ -32,9 +42,9 @@
       <button class="percentage" name='50'>50%</button>
       <input type="text" class="percentage" name="custom" placeholder="Custom">
     </article>
-    <article class="container">
+    <article id="peopl" class="container">
       <p>Number of People</p>
-      <input type="text" name='people' placeholder="0">
+      <input class="q" type="text" name='people' placeholder="0">
     </article>
   </section>
   
