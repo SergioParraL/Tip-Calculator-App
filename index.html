@@ -13,6 +13,7 @@
             <img src="assets/logo.svg" alt="">
         </div>
             
+    <form>
         <div class="card">
             <div class="left">
                 <div class="white">
@@ -57,7 +58,7 @@
                         <p>
                             / person
                         </p>
-                        <span id="tip_Amount">$0.00</span>
+                        <span id="tip_Amount" class="showBox">$0.00</span>
                     </div>
                     <div class="total">
                         <h5>
@@ -66,12 +67,14 @@
                         <p>
                             / person
                         </p>
-                        <span id="total">$0.00</span>                        
+                        <span id="total" class="showBox">$0.00</span>                        
                     </div>
-                    <input type="reset" value='RESET' name="limpiar">
+                    <input id='reset' type="reset" value='RESET' name="limpiar">
+                        
                 </div>
             </div>
         </div>
+    </form>
     </div>
     <script type="text/javascript" src="main.js"></script>
 </body>

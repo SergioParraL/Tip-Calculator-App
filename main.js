@@ -69,6 +69,7 @@ function input () {
 		}
 	}else {
 		if (deleteNode == null) {
+			if (id == 'custom') {element.style.display = 'block'}
 			const errorMessage = document.createTextNode(`Can't be zero`)
 			h5.appendChild(errorMessage)
 			h5.style.display = 'inline'
@@ -92,13 +93,10 @@ function paint () {
 	total.innerHTML = objTotal.toFixed(2)
 }
 
-
-// this.style.display = 'block'
-			// const text = document.createTextNode(`Can't be zero`)
-			// this.id = 'inputText'
-			// const child = document.querySelector('#inputText')
-			// p.appendChild(text)
-			// let m = this.parentNode.id
-			// let l = document.querySelector('#'+m).insertBefore(p, child)
-			// console.log(l)
-			// this.removeAttribute('id')
+let reset = document.querySelector('#reset')
+	reset.addEventListener('click',(() => {
+	const show = document.querySelectorAll('.showBox')
+	show.forEach( function(e) {
+		e.innerHTML = "$0.00"
+	});
+}))
