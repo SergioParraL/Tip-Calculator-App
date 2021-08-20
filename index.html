@@ -1,85 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-    input.p{
-      display: block
-    }
-    #p{
-      color: red;
-      display: inline;
-    }
-    #let{
-      display: inline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main>
-    <form action="">
-    
-  <section class="wrapper">
-    <article id='bill' class="container">
-      <p>Bill</p>
-      <input class="q" type="text" name="bill" placeholder="0.00">
-    </article>
-    <article id='perctg' class="container">
-      <p>Select Tip %</p>
-      <button class="percentage" name='5'>5%</button>
-      <button class="percentage" name='10'>10%</button>
-      <button class="percentage" name='15'>15%</button>
-      <button class="percentage" name='25'>25%</button>
-      <button class="percentage" name='50'>50%</button>
-      <input type="text" class="percentage" name="custom" placeholder="Custom">
-    </article>
-    <article id="peopl" class="container">
-      <p>Number of People</p>
-      <input class="q" type="text" name='people' placeholder="0">
-    </article>
-  </section>
-  
-  <section class="wrapper">
-      <article class="container">
-      <div>
-        <p>
-          Tip Amount <br>
-          / person
-        </p>
-        <span id="tip_Amount">
-            0.00
-        </span>
-      </div>
-      <div>
-        <p>
-          Total <br>
-          / person
-        </p>
-        <span id="total">0.00</span>
-      </div>
-      <div>
-        <input type="reset" name="limpiar" value="Borrar datos del formulario" />
-      </div>
-    </article>
-    <article class="container"></article>
-    <article class="container"></article>
-    </form>
-  </section>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-  </main>
-  <script type="text/javascript" src="js/main.js"></script>
+    <div class="container">
+        <div class="title">
+            <img src="assets/logo.svg" alt="">
+        </div>
+            
+        <div class="card">
+            <div class="left">
+                <div class="white">
+                    <div id='bill' class="bill">
+                        <h5>
+                            Bill
+                        </h5>
+                        <div class="icon">
+                            <span></span>
+                            <input class="q" type="text" name="bill" placeholder="$0.00">
+                        </div>
+                    </div>
+                    <div id='perctg' class="tip">
+                        <h5>
+                            Select Tip %
+                        </h5>
+                        <div class="buttons">
+                            <button class="percentage" name='5'>5%</button>
+                            <button class="percentage" name='10'>10%</button>
+                            <button class="percentage" name='15'>15%</button>
+                            <button class="percentage" name='25'>25%</button>
+                            <button class="percentage" name='50'>50%</button>
+                            <input class="percentage" type="text" name="custom" placeholder="Custom">
+                        </div>
+                    </div>
+                    <div id="peopl" class="number">
+                        <h5>Number of people</h5>
+                        <div class="icon">
+                            <span></span>
+                            <input class="q" type="text" name='people' placeholder="0">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right">
+                <div class="green">
+                    <div class="amount">
+                        <h5>
+                            Tip Amount
+                        </h5>
+                        <p>
+                            / person
+                        </p>
+                        <span id="tip_Amount">$0.00</span>
+                    </div>
+                    <div class="total">
+                        <h5>
+                            Total
+                        </h5>
+                        <p>
+                            / person
+                        </p>
+                        <span id="total">$0.00</span>                        
+                    </div>
+                    <input type="reset" value='RESET' name="limpiar">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
