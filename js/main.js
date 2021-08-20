@@ -22,7 +22,6 @@ $button.forEach( function(e,i) {
 		let q = parseInt(e.target.name)
 		$count.percent = q
 		$countOfData++
-		// gap(q)
 	}))
 });
 
@@ -33,7 +32,21 @@ $input.forEach( function(e) {
 function input () {
 	const attr = this.getAttribute('name')
 	const float = parseFloat(this.value)
+	const span = document.createElement('span')
+	span.id = 'span'
+		const deleteNode = document.querySelector('#span')
+
 	if (float > 0 && float != NaN) {
+
+		console.log(this)
+		if (deleteNode != null) {
+			console.log('entrando')
+			setTimeout((() => {
+				deleteNode.parentNode.removeChild(deleteNode)
+			}),500)
+		}
+
+
  		if( attr == 'bill'){
 			console.log('¡Tío bill eres tú!')
 			$count.bill = float
@@ -54,18 +67,12 @@ function input () {
 			paint()
 		}
 	}else {
-		console.log(this)
-		const span = document.createElement('span')
-		const text = document.createTextNode($errorMessage)
-		span.appendChild(text)
-		span.id = 'span'
-		this.parentNode.appendChild(span)
-		setTimeout((() => {
-			const deleteNode = document.querySelector('#span')
-			deleteNode.parentNode.removeChild(deleteNode)
-		}),5000)
-		// this.parentNode.innerHTML = "<p>$errorMessage</p>"
-		// console.log($errorMessage)
+		// const deleteNode = document.querySelector('#span')
+		if (deleteNode == null) {
+			const text = document.createTextNode($errorMessage)
+			span.appendChild(text)
+			this.parentNode.appendChild(span)
+		}
 	}
 }
 
