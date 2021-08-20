@@ -31,9 +31,9 @@ $input.forEach( function(e) {
 function input () {
 	const attr = this.getAttribute('name')
 	const float = parseFloat(this.value)
-	const p = document.createElement('p')
-	p.id = 'p'
-	const deleteNode = document.querySelector('#p')
+	const h5 = document.createElement('h5')
+	h5.id = 'h5'
+	const deleteNode = document.querySelector('#h5')
 
 	if (float > 0 && float != NaN) {
 
@@ -64,15 +64,14 @@ function input () {
 		}
 	}else {
 		if (deleteNode == null) {
-			this.style.display = 'block'
-			const text = document.createTextNode(`Can't be zero`)
-			this.id = 'inputText'
-			const child = document.querySelector('#inputText')
-			p.appendChild(text)
-			let m = this.parentNode.id
-			let l = document.querySelector('#'+m).insertBefore(p, child)
-			console.log(l)
-			this.removeAttribute('id')
+			const errorMessage = document.createTextNode(`Can't be zero`)
+			h5.appendChild(errorMessage)
+			h5.style.display = 'inline'
+			let id = this.name
+			const element= document.querySelector('#' + id)
+			element.insertBefore(h5, element.children[1])
+			console.log(element)
+			
 		}
 	}
 }
@@ -88,3 +87,14 @@ function paint () {
 	tip.innerHTML = objTip.toFixed(2)
 	total.innerHTML = objTotal.toFixed(2)
 }
+
+
+// this.style.display = 'block'
+			// const text = document.createTextNode(`Can't be zero`)
+			// this.id = 'inputText'
+			// const child = document.querySelector('#inputText')
+			// p.appendChild(text)
+			// let m = this.parentNode.id
+			// let l = document.querySelector('#'+m).insertBefore(p, child)
+			// console.log(l)
+			// this.removeAttribute('id')
