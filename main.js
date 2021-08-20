@@ -31,8 +31,12 @@ $input.forEach( function(e) {
 function input () {
 	const attr = this.getAttribute('name')
 	const float = parseFloat(this.value)
+	
 	const h5 = document.createElement('h5')
 	h5.id = 'h5'
+	const id = this.name
+	const element= document.querySelector('#' + id)
+
 	const deleteNode = document.querySelector('#h5')
 
 	if (float > 0 && float != NaN) {
@@ -57,6 +61,7 @@ function input () {
 		if (deleteNode != null) {
 			setTimeout((() => {
 				deleteNode.parentNode.removeChild(deleteNode)
+				element.children[0].removeAttribute('class')
 			}),500)
 		}
 		if ($countOfData == 3){
@@ -67,11 +72,10 @@ function input () {
 			const errorMessage = document.createTextNode(`Can't be zero`)
 			h5.appendChild(errorMessage)
 			h5.style.display = 'inline'
-			let id = this.name
-			const element= document.querySelector('#' + id)
+			h5.style.color = 'red'
+			element.children[0].classList.add('h5Inline')
 			element.insertBefore(h5, element.children[1])
-			console.log(element)
-			
+			console.log(element.children[0])
 		}
 	}
 }

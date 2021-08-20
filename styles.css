@@ -216,3 +216,7 @@ h5{
     font-size: 12px;
     font-weight: 700;
 }
+
+.h5Inline{
+    display: inline;
+}
