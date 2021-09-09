@@ -7,7 +7,7 @@ const $input = document.querySelectorAll('input[type=text]')
 let $countOfData = 0  
 let $count = {
 	bill : 0,
-	personNum : 0,
+	personNum : 1,
 	percent : 0,
 	tipMount : function () {
 		return ((this.bill * this.percent) / 100 ) / this.personNum
@@ -32,50 +32,41 @@ $input.forEach( function(e) {
 
 // Extrae los datos de los campos de Formulario
 function input () {
-		// this.addEventListener('keyup',function (e) {
-		const attr = this.getAttribute('name')
-		const float = parseFloat(this.value)
-		const h5 = document.createElement('h5')
-		h5.id = 'h5'
-		const id = this.name
-		const element= document.querySelector('#' + id)
+	const attr = this.getAttribute('name')
+	const float = parseFloat(this.value)
+	const h5 = document.createElement('h5')
+	h5.id = 'h5'
+	const id = this.name
+	const element= document.querySelector('#' + id)
 
-		const deleteNode = document.querySelector('#h5')
+	const deleteNode = document.querySelector('#h5')
 
-		if (float > 0 && float != NaN) {
-			switch (attr) {
-				case 'bill':
-					console.log('¡Tío bill eres tú!')
-					$count.bill = float
-					console.log($count)
-					break;
-				case 'people':
-					console.log('people')
-					$count.personNum = float
-					console.log($count)
-					break;
-				case 'custom':
-					console.log('custom')
-					$count.percent = float
-					console.log($count)
-					break;
-			}
-			if (deleteNode != null) {
-				setTimeout((() => {
-					deleteNode.parentNode.removeChild(deleteNode)
-					element.children[0].removeAttribute('class')
-				}),500)
-			}else{
-				paint()
-
-			}
-			// if ($countOfData == 3){
-			// }
+	if (float > 0 && float != NaN) {
+		switch (attr) {
+			case 'bill':
+				console.log('¡Tío bill eres tú!')
+				$count.bill = float
+				break;
+			case 'people':
+				console.log('people')
+				$count.personNum = float
+				break;
+			case 'custom':
+				console.log('custom')
+				$count.percent = float
+				break;
 		}
-
-	else {
+		if (deleteNode != null) {
+			setTimeout((() => {
+				deleteNode.parentNode.removeChild(deleteNode)
+				element.children[0].removeAttribute('class')
+			}),500)
+		}else{
+			paint()
+		}
+	}else {
 		if (deleteNode == null) {
-			if (id == 'custom') {element.style.display = 'block'}
+			if (id == 'custom') element.style.display = 'block'
 			const errorMessage = document.createTextNode(`Can't be zero`)
 			h5.appendChild(errorMessage)
 			h5.style.display = 'inline'
@@ -84,8 +75,6 @@ function input () {
 			element.insertBefore(h5, element.children[1])
 		}
 	}
-	// })
-
 }
 
 function paint () {
@@ -107,4 +96,7 @@ reset.addEventListener('click',(() => {
 	show.forEach( function(e) {
 		e.innerHTML = "$0.00"
 	});
+	$count.bill = 0
+	$count.personNum = 1
+	$count.percent = 0
 }))
